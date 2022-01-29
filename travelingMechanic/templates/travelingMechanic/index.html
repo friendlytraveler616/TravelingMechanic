@@ -20,9 +20,18 @@
   <body>
     <div class="leftSpan">
       <!-- NAV bar goes here -->
-      <div class = "clearfix"
-        ><span class = "menu"><a class = "menu" href = ""><img src={% static 'images/blankProfilePicture.png' %} class = "navpics"></a></span
-        ><span class = "menu"><a class = "menu" href = ""><img src={% static 'images/searchSymbol.png' %} class = "navpics"></a></span
+      <div class = "clearfix">
+        {% if user.is_authenticated %}
+        <span class = "menu">
+          <a class = "menu" href = ""><img src={{user.webuser.profilePic.url}} class = "navpics"></a>
+        </span>
+        {% else %}
+        <span class = "menu">
+          <a class = "menu" href = ""><img src={% static 'images/blankProfilePicture.png' %} class = "navpics"></a>
+        </span>
+        {% endif %}
+        <span class = "menu">
+          <a class = "menu" href = ""><img src={% static 'images/searchSymbol.png' %} class = "navpics"></a></span
         ><span class = "menu"><a class = "menu" href = ""><img src={% static 'images/mapSymbol.png' %} class = "navpics"></a></span
       ></div>
       <!-- LEFT block goes here -->
