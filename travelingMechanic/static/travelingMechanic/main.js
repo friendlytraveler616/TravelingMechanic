@@ -1,8 +1,16 @@
+var latt = 50.6516;
+var lngg = 80.6752;
+
+function setCoords(latt,lngg){
+    this.latt = latt;
+    this.lngg = lngg;
+}
+
 function initMap(){
-    var Gainesville = {lat:29.6516, lng:277.6752};
+    var userPos = {lat: latt, lng: lngg}
     var options = {
-        zoom:13,
-        center:Gainesville
+        zoom:18,
+        center:userPos
     }
 
     var map = new google.maps.Map(document.getElementById('map'), options);
