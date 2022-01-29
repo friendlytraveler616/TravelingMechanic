@@ -39,14 +39,8 @@ function initMap(){
     }
 }
 
-function sendCoords(){
-    console.log(latt, lngg);
-//    $.ajax({
-//      type: "POST",
-//      url: {% url 'view_detail' %},
-//      data: search_word,
-//      success: function(result){
-//        alert("Success");
-//      }
-//    });
+function fillCoords(){
+    document.getElementById("id_lat").value = latt;
+    document.getElementById("id_long").value = lngg;
 }
+
