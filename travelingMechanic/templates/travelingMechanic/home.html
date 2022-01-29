@@ -2,10 +2,26 @@
 {% load static %}
 {% block content %}
 <h1>My Local Map</h1>
+<button onclick="initMap()">Click me</button>
 <div id="map"></div>
+
+<script>
+    const successCallback = (position) =>{
+        console.log(position);
+        setCoords(position.coords.latitude, position.coords.longitude);
+    };
+    const errorCallback = (position) => {
+        console.log(position);
+    };
+
+    navigator.geolocation.getCurrentPosition(successCallback, errorCallback, {
+        enableHighAccuracy: true,
+        timeout: 10000
+    });
+</script>
+
 <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeIsksLrYM0yZshKCRI2UOfY58OU6_bHI&callback=initMap&v=weekly"
-      async
+      async defer
     ></script>
-<script src="{% static  'travelingMechanic/main.js' %}"></script>
 {% endblock %}
