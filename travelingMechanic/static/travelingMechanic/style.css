@@ -2,7 +2,123 @@ h1 {
     color:red;
 }
 
-#map{
-    height: 60vh;
+#map
+{
+    height: 100vh;
     width: 100%;
+}
+
+body
+{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: auto;
+}
+
+div.leftSpan
+{
+  /* display: flex; */
+  width: 30%;
+  height: auto;
+  min-height: 100%;
+  float: left;
+}
+
+div.rightSpan
+{
+  /* display: flex; */
+  width: 70%;
+  height: auto;
+  min-height: 100%;
+  float: right;
+}
+
+span.menu
+{
+  display: flex;
+  justify-content: center;
+  float: left;
+  width: 40%;
+  max-width: 14rem;
+  padding: 10px 0px 0px 0px;
+  text-align: center;
+  margin: 0rem -5% 0rem -5%;
+}
+
+div.clearfix
+{
+  max-width: 100%;
+  background-color: white;
+  margin: 0% 0% 1rem 5%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  opacity: 100%;
+}
+
+div.leftblock
+{
+  height: 100%;
+}
+
+p.navigation
+{
+  padding: 10px;
+  border-bottom: 1px white solid;
+}
+
+img.navpics
+{
+    width : 60%;
+    height: auto;
+}
+
+/******************************LINKS**********************************/
+a.main
+{
+  text-decoration: none;
+  color: white;
+}
+a.main: unvisited
+{
+  color: white;
+
+}
+a.main: visited
+{
+  color: white;
+}
+a.main: hover
+{
+  color: white;
+}
+a.main: active
+{
+  color: white;
+}
+
+
+a.menu
+{
+  text-decoration: none;
+  color: black;
+}
+a.menu: unvisited
+{
+  color: black;
+
+}
+a.menu: visited
+{
+  color: black;
+}
+p.navigation:hover {
+  border-bottom: 1px #000000 solid;
+  background-color: #dddddd;
+}
+a.menu: active
+{
+  color: black;
 }
