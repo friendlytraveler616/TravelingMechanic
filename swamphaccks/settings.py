@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'travelingMechanic.apps.TravelingmechanicConfig',
+    'payment.apps.PaymentConfig',
+    'user.apps.UserConfig',
 ]
 
 MIDDLEWARE = [
