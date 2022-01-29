@@ -13,8 +13,8 @@ class webUser(models.Model):
 class Commission(models.Model):
     title = models.CharField(max_length=200)
     description = models.CharField(max_length=300, blank=True)
-    lat = models.IntegerField(default=-82.374);
-    long = models.IntegerField(default=29.648);
+    lat = models.FloatField(default=-82.374);
+    long = models.FloatField(default=29.648);
     askPrice = models.IntegerField(default=0, validators=[validators.MinValueValidator(0)])
     images = models.ImageField(default='default.png', upload_to='commissionpic/')
     date_created = models.DateTimeField(default=timezone.now)
