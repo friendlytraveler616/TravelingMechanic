@@ -1,4 +1,27 @@
 {% extends "travelingMechanic/index.html" %}
 {% block content %}
-<h1>Home Page</h1>
+<h1>My Local Map</h1>
+<div id="map"></div>
+<script>
+    function initMap(){
+        var city = {lat:29.6516, lng:277.6752};
+        var options = {
+            zoom:13,
+            center:city
+        }
+
+        var map = new google.maps.Map(document.getElementById('map'), options);
+
+        marker = new google.maps.Marker({
+          position: city,
+          map: map,
+        });
+
+
+    }
+</script>
+
+<script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeIsksLrYM0yZshKCRI2UOfY58OU6_bHI&callback=initMap">
+</script>
 {% endblock %}
