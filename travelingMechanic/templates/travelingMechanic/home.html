@@ -2,10 +2,14 @@
 {% load static %}
 {% block content %}
 <h1>My Local Map</h1>
-<button onclick="initMap()">Click me</button>
+<button onclick="initMap(); sendCoords();">Find Me</button>
 <div id="map"></div>
+<!-- Have a refresh button that pulls coordinates and updates map -->
 
-<script>
+
+
+<script type="text/javascript">
+
     const successCallback = (position) =>{
         console.log(position);
         setCoords(position.coords.latitude, position.coords.longitude);
@@ -13,11 +17,11 @@
     const errorCallback = (position) => {
         console.log(position);
     };
-
     navigator.geolocation.getCurrentPosition(successCallback, errorCallback, {
         enableHighAccuracy: true,
         timeout: 10000
     });
+
 </script>
 
 <script

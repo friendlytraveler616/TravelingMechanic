@@ -1,0 +1,13 @@
+{% extends "travelingMechanic/index.html" %}
+{% load static %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset>
+                {{ form }}
+            </fieldset>
+        </form>
+        <button type="submit">Add</button>
+    </div>
+{% endblock %}

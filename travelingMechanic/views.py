@@ -1,6 +1,12 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Commission
 # Create your views here.
 
 def home(request):
-    return render(request, 'travelingMechanic/home.html', {'title': 'Home'})
+    context = {
+        'commissions': Commission.objects.all(),
+        'title': 'Home'
+    }
+
+    return render(request, 'travelingMechanic/home.html', context)
+

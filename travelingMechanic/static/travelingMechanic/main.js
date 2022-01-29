@@ -4,6 +4,7 @@ var lngg = 80.6752;
 function setCoords(latt,lngg){
     this.latt = latt;
     this.lngg = lngg;
+    console.log(latt, lngg);
 }
 
 function initMap(){
@@ -38,3 +39,14 @@ function initMap(){
     }
 }
 
+function sendCoords(){
+    console.log(latt, lngg);
+//    $.ajax({
+//      type: "POST",
+//      url: {% url 'view_detail' %},
+//      data: search_word,
+//      success: function(result){
+//        alert("Success");
+//      }
+//    });
+}
