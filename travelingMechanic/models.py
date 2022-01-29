@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.core import validators
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 # Create your models here.
 class webUser(models.Model):
@@ -23,6 +24,9 @@ class Commission(models.Model):
     def __str__(self):
         return ('\nTitle: ' + self.title + '\nDescription: ' + self.description
                 + '\nAsk price: ' + str(self.askPrice) + '\nUser: ' + self.author.user.username)
+
+    def get_absolute_url(self):
+        return reverse('home')
 
 class review(models.Model):
     stars = models.IntegerField(validators=[validators.MinValueValidator(1), validators.MaxValueValidator(5)])

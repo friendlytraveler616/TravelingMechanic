@@ -4,6 +4,7 @@ var lngg = 80.6752;
 function setCoords(latt,lngg){
     this.latt = latt;
     this.lngg = lngg;
+    console.log(latt, lngg);
 }
 
 function initMap(){
@@ -36,5 +37,10 @@ function initMap(){
             infoWindow.open(map, marker);
         })
     }
+}
+
+function fillCoords(){
+    document.getElementById("id_lat").value = latt;
+    document.getElementById("id_long").value = lngg;
 }
 
