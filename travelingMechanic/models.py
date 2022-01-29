@@ -18,5 +18,7 @@ class Commission(models.Model):
         return ('\nTitle: ' + self.title + '\nDescription: ' + self.description
                 + '\nAsk price: ' + str(self.askPrice) + '\nUser: ' + self.author.username)
 
-# class webUser(User):
-#     class
+class webUser(User):
+     class Meta:
+         proxy = True
+        
