@@ -16,6 +16,11 @@ def profile(request):
     context = {"title":"profile", "uForm":uForm, "wForm":wForm}
     return render(request, 'user/profile.html', context)
 
+
+def login(request):
+    context = {"title":"login"}
+    return render(request, 'user/login.html', context)
+
 def register(request):
     if request.method == 'POST':
         form = UserRegistForm(request.POST)
@@ -30,3 +35,7 @@ def register(request):
 def forgetPW(request):
     context = {"title":"Forgot Password?"}
     return render(request, 'user/forgetPW.html', context)
+
+def resetPW(request):
+    context = {"title":"Reset Password?"}
+    return render(request, 'user/resetPW.html', context)

@@ -1,8 +1,27 @@
-{% extends "travelingMechanic/index.html" %}
-{% block content %}
-<form method="POST">
-    {% csrf_token %}
-    {{form.as_table}}
-    <button type="submit"> Login </button>
-</form>
-{% endblock%}
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <title> Login Page </title>
+      <link rel = "stylesheet" type = "text/css" href = "{%static 'style.css'%}" />
+  </head>
+  <body>
+    <div class = "form">
+    <p>Login</p>
+    <form>
+        <input type = "text" name= "username" placeholder= "username">
+        <input type = "password" name= "password" placeholder="password">
+        <button type = "submit"> Login </button>
+        <p class = "message"> Not registered? </p> <a href = "/user/register">Create an account</a></p>
+    </form>
+    </div>
+
+  </body>
+</html>
+
+
+
+
+
+
+

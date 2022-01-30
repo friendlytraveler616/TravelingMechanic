@@ -1,9 +1,22 @@
 {% extends "travelingMechanic/index.html" %}
+{% load static %}
+
 {% block content %}
-<form method="POST" enctype="multipart/form-data">
+<link rel="stylesheet" href="{% static 'user/style.css' %}">
+
+<div class="publicProfile1">
+  <img src={% static 'images/blankProfilePicture.png' %} class = "profilePic">
+
+  <h1 class = "profileName">
+    Jay Chou
+  </h1>
+
+  <form>
+    <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{uForm.as_p}}
     {{wForm.as_p}}
     <button type="submit">Submit changes</button>
-</form>
+  </form>
 {% endblock%}
+

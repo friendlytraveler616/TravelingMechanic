@@ -1,0 +1,173 @@
+div.publicProfile1
+{
+  display: grid;
+
+  float: left;
+  grid-template-columns: 1fr 6fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  height: 100vh;
+  width: 100%;
+  min-width: 40rem;
+  min-height: 100%;
+  grid-auto-rows: minmax(auto, 20rem);
+
+  /* background-color: #6abadeba; */
+}
+
+img.profilePic
+{
+  grid-column: 1;
+  grid-row: 1;
+
+  padding: 1rem 1rem 0rem 2rem;
+
+  width: 21%;
+  max-width: 60rem;
+  min-width: 15rem;
+  height: auto;
+  float: left;
+}
+
+img.star
+{
+  grid-column: 1;
+  grid-row: 1;
+
+  margin: 13rem 0 0 3.5rem;
+  width: 2rem;
+  min-width: 2rem;
+
+  float: left;
+}
+
+h1.profileName
+{
+  grid-column: 2;
+  grid-row: 1;
+  font-size: 4rem;
+  margin: 3rem 0% 0% -13rem;
+  min-width: 60%;
+  width: 60%;
+
+}
+
+h3.username
+{
+  grid-column: 2;
+  grid-row: 1;
+  font-size: 2rem;
+  margin: 8rem 0% 0% -13rem;
+  min-width: 60%;
+  width: 60%;
+}
+
+div.rating
+{
+  grid-column: 1;
+  grid-row: 1;
+  font-size: 2rem;
+  margin: 0% 0% 0% 7%;
+}
+
+h6.rating
+{
+  font-size: 1.5rem;
+  margin: 13.1rem 0 0 6rem;
+}
+
+div.uploadPic
+{
+  grid-column: 1;
+  grid-row: 1;
+  font-size: 2rem;
+  margin: 56.5% 0% 0% 9.5%;
+}
+
+div.fullname
+{
+  grid-column: 1;
+  grid-row: 1;
+  font-size: 2rem;
+  margin: 80% 0% 0% 16.3%;
+}
+
+div.fullname2
+{
+  grid-column: 1/2;
+  grid-row: 1;
+  font-size: 2rem;
+  margin: 75.5% 0 0 55%;
+}
+
+div.username
+{
+  grid-column: 1;
+  grid-row: 1;
+  font-size: 2rem;
+  margin: 100% 0% 0% 16.3%;
+}
+
+div.username2
+{
+  grid-column: 1/2;
+  grid-row: 1;
+  font-size: 2rem;
+  margin: 95.5% 0 0 55%;
+}
+
+div.email
+{
+  grid-column: 1;
+  grid-row: 1;
+  font-size: 2rem;
+  margin: 120% 0% 0% 16.3%;
+}
+
+div.email2
+{
+  grid-column: 1/2;
+  grid-row: 1;
+  font-size: 2rem;
+  margin: 115.5% 0 0 55%;
+}
+
+input{
+    outline: 0;
+    border-radius: 10px;
+    /* background: #F2F2F2; */
+    width: 30rem;
+    height: 4rem;
+    min-width: 16rem;
+    border: 0;
+    margin: 0 0 15px -0.5rem;
+    padding: 1rem;
+    /* box-sizing: border-box; */
+    font-size: 2rem;
+    font-weight: 500;
+}
+input:hover{
+    background-color: #D3F8F9;
+    transition: all 1s ease 0s;
+}
+input:focus{
+    background-color: #D3F8F9;
+    transition: all 1s ease 0s;
+}
+
+button
+{
+    outline: 0;
+    border-radius: 10px;
+    background: #80b3ff;
+    width: 11rem;
+    border: 0;
+    padding: 0.5rem;
+    color: #000000;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+button:hover, button:active, button:focus
+{
+    background-color: #3385ff;
+    transition: all 1s ease 0s;
+}
