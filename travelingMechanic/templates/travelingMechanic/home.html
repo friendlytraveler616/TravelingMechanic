@@ -33,28 +33,38 @@
         var map = new google.maps.Map(document.getElementById('map'), options);
 
         locations = [
-           {% for point in data %}
+           {% for point in commissions %}
                 {% if point.lat == None %}
                 {% else %}
-                ['<h1>{{ point.title }}</h1>', {{ point.lat }}, {{ point.long }}],
+                ['<a id="marker-link" href={% url 'commission-detail' point.id %}><h4>{{ point.title }}</h4></a>', {{ point.lat }}, {{ point.long }},
+                {{ point.id }}, '{{ point.description }}', {{ point.askPrice }}, '{{ point.author.user.username }}',
+                '{% url 'commission-detail' point.id %}'],
+
                 {% endif %}
            {% endfor %}
         ]
 
+
         for(let x = 0; x < locations.length; x++){
             addMarker({
                 coords:{lat:parseFloat(locations[x][1]), lng:parseFloat(locations[x][2])},
-                content:locations[x][0]
+                content: locations[x][0],
+                dbid: locations[x][3],
+                desc: locations[x][4],
+                askPrice: locations[x][5],
+                author: locations[x][6],
+                url: locations[x][7]
             });
-
         }
 
 
+        var currentInfoWindow = null;
 
         function addMarker(props){
             var marker = new google.maps.Marker({
               position: props.coords,
               map: map,
+              customInfo: [props.dbid, props.desc, props.askPrice, props.author, props.url]
             });
             // check content
             if(props.content){
@@ -64,10 +74,20 @@
             }
             // event listener for marker
             marker.addListener('click', function(){
+                if (currentInfoWindow != null) {
+                    currentInfoWindow.close();
+                }
                 infoWindow.open(map, marker);
+                currentInfoWindow = infoWindow;
+                document.getElementById("commission-info").style.display="block";
+                document.getElementById("commission-title").innerHTML = props.content;
+                document.getElementById("commission-description").innerHTML = "Description: " + marker['customInfo'][1];
+                document.getElementById("commission-asking-price").innerHTML = "Offer: $" + marker['customInfo'][2];
+                document.getElementById("commission-author").innerHTML = "Created By: " + marker['customInfo'][3];
+                document.getElementById("commission-preview").setAttribute("action", "marker['customInfo'][4]");
+                document.getElementById("pknum").value = marker['customInfo'][0];
             });
         }
-
 
 }
 </script>
@@ -79,7 +99,31 @@
 {% endblock %}
 {% block leftPanel %}
   <!-- iteractive commission panel goes here -->
-    {% for commission in commissions%}
+
+    <div id="commission-info" style="display: none">
+        <ul id="commission-list">
+            <li id="commission-title"></li>
+            <li id="commission-description"></li>
+            <li id="commission-asking-price"></li>
+            <li id="commission-author"></li>
+        </ul>
+        <form method = "POST" id="taker-form">
+            {% csrf_token %}
+            <button id="commission-preview" action="">Preview</button>
+            <input type="hidden" id="pknum">
+            <button type="submit">Take Job</button>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+        $('#taker-form').on('submit', function(event){
+            event.preventDefault();
+            console.log("form submitted!")
+            create_post();
+        });
+    </script>
+
+    {% for commission in commissions %}
         <a href="{%url 'commission-detail' commission.id%}"><button>{{commission.title}}</button></a>
     {% endfor %}
 {% endblock %}

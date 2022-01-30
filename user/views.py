@@ -27,6 +27,7 @@ def register(request):
     else:
         form = UserRegistForm()
     context = {"title":"Registration", 'form':form}
+<<<<<<< HEAD
     return render(request, 'user/register.html', context)
 
 def forgetPW(request):
@@ -53,3 +54,4 @@ def rev(request):
 
     context = {"title":"Reviews?", "reviews": review.objects.all().filter(target = request.user.webuser)}
     return render(request, 'user/reviews.html', context)
+
