@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import UserRegistForm, userUpdateForm, webUserUpdateForm
+from travelingMechanic.models import review
 # Create your views here.
 def profile(request):
     #Updating requires instance
@@ -21,9 +22,14 @@ def register(request):
         form = UserRegistForm(request.POST)
         if (form.is_valid()):
             form.save()
-            print('hello')
             return redirect('user-login')
     else:
         form = UserRegistForm()
     context = {"title":"Registration", 'form':form}
     return render(request, 'user/register.html', context)
+
+def user_reviews(request):
+    reviewFiltered = review.objects.all().filter(target=request.user.webuser)
+    #make the review personalized!
+    context={'title':'Reviews', 'reviews':reviewFiltered}
+    return render(request, 'user/user_reviews.html', context)
