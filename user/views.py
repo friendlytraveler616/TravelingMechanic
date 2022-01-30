@@ -27,23 +27,3 @@ def register(request):
         form = UserRegistForm()
     context = {"title":"Registration", 'form':form}
     return render(request, 'user/register.html', context)
-
-def forgetPW(request):
-    context = {"title":"Forgot Password?"}
-    return render(request, 'user/forgetPW.html', context)
-
-def resetPW(request):
-    context = {"title":"Reset Password?"}
-    return render(request, 'user/resetPW.html', context)
-
-def emailsent(request):
-    context = {"title":"Email Sent?"}
-    return render(request, 'user/emailsent.html', context)
-
-def completePW(request):
-    context = {"title":"Password Complete?"}
-    return render(request, 'user/completePW.html', context)
-
-def security(request):
-    context = {"title":"Security?"}
-    return render(request, 'user/security.html', context)
