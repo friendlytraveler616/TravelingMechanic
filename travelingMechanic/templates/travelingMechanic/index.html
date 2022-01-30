@@ -18,7 +18,7 @@
       <title>Traveling Mechanic</title>
     {% endif %}
   </head>
-  <body>
+   <body style = "background-image: url({% static 'images/gradient.jpeg' %});  background-repeat: no-repeat;  background-size: cover;">
     {% if messages %}
       {% for message in messages%}
         <h3>{{message}}</h3>
@@ -26,7 +26,7 @@
     {% endif %}
     <div class="leftSpan">
       <!-- NAV bar goes here -->
-      <div class = "clearfix">
+      <div class = "clearfix" style = "background-image: url({% static 'images/gradient.jpeg' %});  background-repeat: no-repeat;  background-size: cover;">
         {% if user.is_authenticated %}
         <span class = "menu">
           <a class = "menu" href = "{% url 'user-profile' %}"><img src={{user.webuser.profilePic.url}} class = "navpics"></a>
