@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.views.generic import CreateView, DetailView
 from .forms import UserRegistForm, userUpdateForm, webUserUpdateForm
 from travelingMechanic.models import review, webUser
-
 # Create your views here.
 def profile(request):
     #Updating requires instance
@@ -43,4 +42,3 @@ def search(request):
 class SearchDetailView(DetailView):
     model = webUser
     template_name = 'user/search.html'
-
