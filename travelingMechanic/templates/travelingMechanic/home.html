@@ -2,8 +2,10 @@
 {% load static %}
 {% block content %}
 <div id="map"></div>
+<!-- Have a refresh button that pulls coordinates and updates map -->
 
-<script>
+<script type="text/javascript">
+
     const successCallback = (position) =>{
         console.log(position);
         setCoords(position.coords.latitude, position.coords.longitude);
@@ -11,11 +13,11 @@
     const errorCallback = (position) => {
         console.log(position);
     };
-
     navigator.geolocation.getCurrentPosition(successCallback, errorCallback, {
         enableHighAccuracy: true,
         timeout: 10000
     });
+
 </script>
 
 <script

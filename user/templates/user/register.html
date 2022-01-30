@@ -1,4 +1,33 @@
-{% extends "travelingMechanic/index.html" %}
-{% block content %}
-<h1> Register </h1>
-{% endblock%}
+
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <title> Sign Up Page </title>
+      <link rel = "stylesheet" type = "text/css" href = "{%static 'style.css'%}" />
+  </head>
+  <body>
+    <div class = "form">
+    <p>Sign Up</p>
+     <form action = "/register" method = "post">
+
+        <label for= ""> Name </label>
+        <input type =  "text" id = "name" name = "name" placeholder = "Enter your name" required>
+        <label for= ""> Username </label>
+        <input type =  "text" id = "username" name = "username" placeholder = "Create a username" required>
+        <label for= ""> Email Address </label>
+        <input type =  "text" id = "email" name = "email" placeholder = "Enter your email" required>
+        <label for= ""> Password </label>
+        <input type =  "text" id = "password" name = "password" placeholder = "Create a password" required>
+        <label for= ""> Skills </label>
+        <input type =  "text" id = "skills" name = "skills" placeholder = "Describe your skills" required>
+
+        <button type = "submit"> Sign Up </button>
+    </form>
+    </div>
+
+  </body>
+</html>
+
+
+

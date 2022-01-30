@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.core import validators
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 # Create your models here.
 class webUser(models.Model):
@@ -18,11 +19,14 @@ class Commission(models.Model):
     askPrice = models.FloatField(default=0, validators=[validators.MinValueValidator(0)])
     images = models.ImageField(default='default.png', upload_to='commissionpic/')
     date_created = models.DateTimeField(default=timezone.now)
-    author = models.ForeignKey(webUser, on_delete=models.CASCADE)
-
+    author = models.ForeignKey(webUser, on_delete=models.CASCADE, related_name='author_requests_created')
+    taker = models.ForeignKey(webUser, on_delete=models.CASCADE, blank=True, null=True, related_name='taker_requests_created')
     def __str__(self):
         return ('\nTitle: ' + self.title + '\nDescription: ' + self.description
-                + '\nAsk price: ' + str(self.askPrice) + '\nUser: ' + self.author.username)
+                + '\nAsk price: ' + str(self.askPrice) + '\nUser: ' + self.author.user.username)
+
+    def get_absolute_url(self):
+        return reverse('home')
 
 class review(models.Model):
     stars = models.IntegerField(validators=[validators.MinValueValidator(1), validators.MaxValueValidator(5)])
