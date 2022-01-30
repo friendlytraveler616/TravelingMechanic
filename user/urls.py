@@ -11,5 +11,7 @@ urlpatterns = [
    path('logout', auth_views.LogoutView.as_view(template_name='user/logout.html'), name="user-logout"),
    path('register', views.register, name="user-register"),
    path('forgetPW', views.forgetPW, name="user-forgetPW"),
-   path('resetPW', views.resetPW, name="user-resetPW")
+   path('resetPW', views.resetPW, name="user-resetPW"),
+   path('emailsent', views.emailsent, name="user-emailsent"),
+   path('completePW', views.completePW, name = "user-completePW")
 ]
