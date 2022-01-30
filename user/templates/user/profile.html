@@ -1,4 +1,9 @@
 {% extends "travelingMechanic/index.html" %}
 {% block content %}
-<h1> Profile </h1>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{uForm.as_p}}
+    {{wForm.as_p}}
+    <button type="submit">Submit changes</button>
+</form>
 {% endblock%}
