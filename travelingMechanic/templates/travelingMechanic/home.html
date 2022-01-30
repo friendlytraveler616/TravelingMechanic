@@ -37,20 +37,21 @@
            {% for point in data %}
                 {% if point.lat == None %}
                 {% else %}
-                ['<h1>{{ point.title }}</h1>', {{ point.lat }}, {{ point.long }}],
+                ['<h4>{{ point.title }}</h4>', {{ point.lat }}, {{ point.long }}],
                 {% endif %}
            {% endfor %}
         ]
+
 
         for(let x = 0; x < locations.length; x++){
             addMarker({
                 coords:{lat:parseFloat(locations[x][1]), lng:parseFloat(locations[x][2])},
                 content:locations[x][0]
             });
-
         }
 
 
+        var currentInfoWindow = null;
 
         function addMarker(props){
             var marker = new google.maps.Marker({
@@ -65,9 +66,17 @@
             }
             // event listener for marker
             marker.addListener('click', function(){
+                if (currentInfoWindow != null) {
+                    currentInfoWindow.close();
+                }
                 infoWindow.open(map, marker);
+                currentInfoWindow = infoWindow;
+                document.getElementById("commission-info").style.display="block";
+
+                console.log(currentInfoWindow);
             });
         }
+
 
 
 }
@@ -80,6 +89,16 @@
 {% endblock %}
 {% block leftPanel %}
   <!-- iteractive commission panel goes here -->
+
+    <div id="commission-info" style="display: none">
+        <ul id="commission-list">
+            <li id="commission-title">test</li>
+            <li id="commission-description"></li>
+            <li id="commission-asking-price"></li>
+            <li id="image"></li>
+        </ul>
+    </div>
+
     {% for commission in commissions%}
         <a href="{%url 'commission-detail' commission.id%}"><button>{{commission.title}}</button></a>
     {% endfor %}
