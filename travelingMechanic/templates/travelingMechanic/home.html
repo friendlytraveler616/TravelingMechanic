@@ -4,11 +4,16 @@
 <div id="map"></div>
 <!-- Have a refresh button that pulls coordinates and updates map -->
 
-<script type="text/javascript">
+
+<script>
+    var latt = 50.6516;
+    var lngg = 80.6752;
+    var locations = [];
 
     const successCallback = (position) =>{
         console.log(position);
-        setCoords(position.coords.latitude, position.coords.longitude);
+        latt = position.coords.latitude;
+        lngg = position.coords.longitude;
     };
     const errorCallback = (position) => {
         console.log(position);
@@ -18,6 +23,56 @@
         timeout: 10000
     });
 
+
+
+
+    function initMap(){
+        var userPos = {lat: latt, lng: lngg}
+        var options = {
+            zoom:18,
+            center:userPos
+        }
+
+        var map = new google.maps.Map(document.getElementById('map'), options);
+
+        locations = [
+           {% for point in data %}
+                {% if point.lat == None %}
+                {% else %}
+                ['<h1>{{ point.title }}</h1>', {{ point.lat }}, {{ point.long }}],
+                {% endif %}
+           {% endfor %}
+        ]
+
+        for(let x = 0; x < locations.length; x++){
+            addMarker({
+                coords:{lat:parseFloat(locations[x][1]), lng:parseFloat(locations[x][2])},
+                content:locations[x][0]
+            });
+
+        }
+
+
+
+        function addMarker(props){
+            var marker = new google.maps.Marker({
+              position: props.coords,
+              map: map,
+            });
+            // check content
+            if(props.content){
+                var infoWindow = new google.maps.InfoWindow({
+                    content:props.content
+                });
+            }
+            // event listener for marker
+            marker.addListener('click', function(){
+                infoWindow.open(map, marker);
+            });
+        }
+
+
+}
 </script>
 
 <script

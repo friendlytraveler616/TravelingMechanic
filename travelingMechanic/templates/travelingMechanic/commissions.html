@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
     <div class="content-section">
-        <form method="POST" id="new-commission-form">
+        <form method="POST" id="new-commission-form" enctype='multipart/form-data'>
             {% csrf_token %}
             {{ form.as_p }}
             <button type="submit" value="Save">Request Assistance</button>
