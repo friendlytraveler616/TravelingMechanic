@@ -65,7 +65,7 @@
            {% for point in commissions %}
                 {% if point.lat == None %}
                 {% else %}
-                ['<a id="marker-link" style = "text-decoration: none; color: black" href={% url 'commission-detail' point.id %}><h4>{{ point.title }}</h4></a>', {{ point.lat }}, {{ point.long }},
+                ['<a style = "text-decoration: none; color: black;" id="marker-link" href={% url 'commission-detail' point.id %}><h4>{{ point.title }}</h4></a>', {{ point.lat }}, {{ point.long }},
                 {{ point.id }}, '{{ point.description }}', {{ point.askPrice }}, '{{ point.author.user.username }}',
                 '{% url 'commission-detail' point.id %}'],
 
@@ -130,11 +130,11 @@
   <!-- iteractive commission panel goes here -->
 
     <div id="commission-info" style="display: none">
-        <ul style = "list-style-type: none;" class = "commission" id="commission-list">
-            <li id="commission-title"></li>
-            <li id="commission-description"></li>
-            <li id="commission-asking-price"></li>
-            <li id="commission-author"></li>
+        <ul style = "list-style-type: none; align-items: center;" class = "commission" id="commission-list">
+            <li class = "buttonTitle" id="commission-title"></li>
+            <li class = "standardtext" id="commission-description"></li>
+            <li class = "standardtext" id="commission-asking-price"></li>
+            <li class = "standardtext" id="commission-author"></li>
         </ul>
         <a id="commission-preview" href=""><button>Preview/Delete</button></a>
         <form method = "POST" id="taker-form">

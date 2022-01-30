@@ -6,7 +6,34 @@
 
 ul.commission
 {
-  list-style-type: none;
+  padding-left: 2rem;
+   text-decoration: none;
+   color: black;
+   list-style-type: none;
+   align-items: center;
+   text-align:left
+}
+
+li{
+  padding-left: 0;
+  align-items: center;
+  text-align:left
+
+}
+
+li.buttonTitle
+{
+  padding-left: -2rem;
+   /* margin: 1rem 10rem 1rem 10rem; */
+    background-color: #4db8ff;
+    font-size: 3rem;
+}
+
+li.standardtext
+{
+  font-size: 1.5rem;
+  align-items: center;
+  left: 50%;
 }
 
 span.vertical
