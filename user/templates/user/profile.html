@@ -55,9 +55,36 @@
   <div class="email2">
     <input type="text" id = "email" value = "jaychou@protonmail.com">
   </div>
+
+  <div class="editSubmit">
+    <button type = "submit">Confirm Changes</button>
+  </div>
+
 </div>
 {% endblock%}
 
 
 {% block leftPanel %}
+
+<a href="{% url 'user-profile' %}">
+  <div class="publicProfileLink">
+    <img src={% static 'images/blankProfilePicture.png' %} class = "publicProfilePic">
+    <h2 style = "margin: 3.5rem 0 0 13rem">Public Profile</h2>
+  </div>
+</a>
+
+<a href="#">
+  <div class="securityLink">
+    <img src={% static 'images/lock.png' %} class = "securityPic">
+    <h2 style = "margin: 4rem 0 0 13rem">Security</h2>
+  </div>
+</a>
+
+<a href="#">
+  <div class="reviewsLink">
+    <img src={% static 'images/goldStar.png' %} class = "reviewsPic">
+    <h2 style = "margin: 3.8rem 0 0 13rem">Reviews</h2>
+  </div>
+</a>
+
 {% endblock %}

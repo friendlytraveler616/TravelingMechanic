@@ -23,16 +23,16 @@
       <div class = "clearfix">
         {% if user.is_authenticated %}
         <span class = "menu">
-          <a class = "menu" href = ""><img src={{user.webuser.profilePic.url}} class = "navpics"></a>
+          <a class = "menu" href = "{% url 'user-profile' %}"><img src={{user.webuser.profilePic.url}} class = "navpics"></a>
         </span>
         {% else %}
         <span class = "menu">
-          <a class = "menu" href = ""><img src={% static 'images/blankProfilePicture.png' %} class = "navpics"></a>
+          <a class = "menu" href = "{% url 'user-profile' %}"><img src={% static 'images/blankProfilePicture.png' %} class = "navpics"></a>
         </span>
         {% endif %}
         <span class = "menu">
-          <a class = "menu" href = ""><img src={% static 'images/searchSymbol.png' %} class = "navpics"></a></span
-        ><span class = "menu"><a class = "menu" href = ""><img src={% static 'images/mapSymbol.png' %} class = "navpics"></a></span
+          <a class = "menu" href = "{% url 'home' %}"><img src={% static 'images/searchSymbol.png' %} class = "navpics"></a></span
+        ><span class = "menu"><a class = "menu" href = "{% url 'home' %}"><img src={% static 'images/mapSymbol.png' %} class = "navpics"></a></span
       ></div>
       <!-- LEFT block goes here -->
       <div class="leftblock">
@@ -40,6 +40,8 @@
           {% endblock %}
       </div>
     </div>
+    <span class="vertical">
+    </span>
     <div class = "rightSpan">
       <!-- RIGHT block goes here -->
       {% block content %}
