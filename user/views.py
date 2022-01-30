@@ -5,13 +5,12 @@ def profile(request):
     context = {"title":"profile"}
     return render(request, 'user/profile.html', context)
 
-<<<<<<< HEAD
+
 def login(request):
     context = {"title":"login"}
     return render(request, 'user/login.html', context)
 
-=======
->>>>>>> 5ff21765d46e865217690cef37c2c7cf7e4ceec1
+
 def register(request):
     if request.method == 'POST':
         form = UserRegistForm(request.POST)
