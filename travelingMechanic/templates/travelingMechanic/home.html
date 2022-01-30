@@ -110,7 +110,7 @@
         <form method = "POST" id="taker-form">
             {% csrf_token %}
             <button id="commission-preview" action="">Preview</button>
-            <input type="hidden" id="pknum">
+            <input type="hidden" id="pknum" name="pknum">
             <button type="submit">Take Job</button>
         </form>
     </div>
@@ -119,8 +119,29 @@
         $('#taker-form').on('submit', function(event){
             event.preventDefault();
             console.log("form submitted!")
-            create_post();
+            send_pk();
         });
+
+        function send_pk() {
+            console.log("create post is working!")
+            console.log($('#pknum').val())
+            $.ajax({
+                url: '',
+                type : 'POST',
+                data : {'pkum': $('#pknum').val()},
+
+                success: function(json) {
+                    console.log(json);
+                    console.log("success");
+                }
+
+                error : function(xhr,errmsg,err) {
+                    $('#results').html("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: "+errmsg+
+                        " <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
+                    console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+                }
+            });
+        }
     </script>
 
     {% for commission in commissions %}

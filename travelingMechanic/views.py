@@ -7,8 +7,18 @@ import json
 
 # Create your views here.
 def home(request):
-    commissions = Commission.objects.all()
-    return render(request, 'travelingMechanic/home.html', {'title': 'Home', 'commissions': commissions})
+    if request.method == "POST":
+        pknum = request.POST.get('pknum')
+        com = Commission.objects.filter(id="pknum")
+        print(com)
+
+    else:
+        context = {
+            'commissions': Commission.objects.all(),
+            'title': 'Home',
+            # 'taker_form': takerForm
+        }
+        return render(request, 'travelingMechanic/home.html', context)
 
 class CommissionDetailView(DetailView):
     model = Commission
