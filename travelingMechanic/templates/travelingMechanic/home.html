@@ -84,14 +84,10 @@
                 document.getElementById("commission-description").innerHTML = "Description: " + marker['customInfo'][1];
                 document.getElementById("commission-asking-price").innerHTML = "Offer: $" + marker['customInfo'][2];
                 document.getElementById("commission-author").innerHTML = "Created By: " + marker['customInfo'][3];
-                document.getElementById("commission-preview").setAttribute("action", marker['customInfo'][4]);
+                document.getElementById("commission-preview").setAttribute("action", "marker['customInfo'][4]");
                 document.getElementById("pknum").value = marker['customInfo'][0];
             });
         }
-
-
-
-
 
 }
 </script>
@@ -111,15 +107,23 @@
             <li id="commission-asking-price"></li>
             <li id="commission-author"></li>
         </ul>
-        <form method = "POST">
+        <form method = "POST" id="taker-form">
             {% csrf_token %}
             <button id="commission-preview" action="">Preview</button>
-            <input id="pknum">
+            <input type="hidden" id="pknum">
             <button type="submit">Take Job</button>
         </form>
     </div>
 
-    {% for commission in commissions%}
+    <script type="text/javascript">
+        $('#taker-form').on('submit', function(event){
+            event.preventDefault();
+            console.log("form submitted!")
+            create_post();
+        });
+    </script>
+
+    {% for commission in commissions %}
         <a href="{%url 'commission-detail' commission.id%}"><button>{{commission.title}}</button></a>
     {% endfor %}
 {% endblock %}

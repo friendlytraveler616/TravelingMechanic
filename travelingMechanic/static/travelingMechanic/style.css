@@ -118,4 +118,11 @@ a.menu: active
   color: black;
 }
 
-#
+#marker-link{
+    color:black;
+    text-decoration: none;
+}
+
+#commission-list{
+    list-style: none;
+}
