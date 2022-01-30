@@ -1,4 +1,63 @@
 {% extends "travelingMechanic/index.html" %}
+{% load static %}
+
 {% block content %}
-<h1> Profile </h1>
+<link rel="stylesheet" href="{% static 'user/style.css' %}">
+
+<div class="publicProfile1">
+  <img src={% static 'images/blankProfilePicture.png' %} class = "profilePic">
+
+  <h1 class = "profileName">
+    Jay Chou
+  </h1>
+
+  <h3 class = "username">
+    @mycodeisbetterthanyours
+  </h3>
+
+  <div class="rating">
+    <img src={% static 'images/blankStar.png' %} class = "star">
+    <h6 class = "rating">
+      5.0
+    </h6>
+  </div>
+
+  <div class="uploadPic">
+    <button type = "submit">Upload Picture</button>
+  </div>
+
+  <div class="fullname">
+    <h4>
+      Full Name
+    </h4>
+  </div>
+
+  <div class="fullname2">
+    <input type="text" id = "fullname" value = "Jay Chou">
+  </div>
+
+  <div class="username">
+    <h4>
+      Username
+    </h4>
+  </div>
+
+  <div class="username2">
+    <input type="text" id = "username" value = "mycodeisbetterthanyours">
+  </div>
+
+  <div class="email">
+    <h4>
+      Email
+    </h4>
+  </div>
+
+  <div class="email2">
+    <input type="text" id = "email" value = "jaychou@protonmail.com">
+  </div>
+</div>
 {% endblock%}
+
+
+{% block leftPanel %}
+{% endblock %}
