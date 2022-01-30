@@ -113,7 +113,7 @@
                 document.getElementById("commission-description").innerHTML = "Description: " + marker['customInfo'][1];
                 document.getElementById("commission-asking-price").innerHTML = "Offer: $" + marker['customInfo'][2];
                 document.getElementById("commission-author").innerHTML = "Created By: " + marker['customInfo'][3];
-                document.getElementById("commission-preview").setAttribute("action", "marker['customInfo'][4]");
+                document.getElementById("commission-preview").setAttribute("href", marker['customInfo'][4]);
                 document.getElementById("pknum").value = marker['customInfo'][0];
             });
         }
@@ -136,11 +136,12 @@
             <li id="commission-asking-price"></li>
             <li id="commission-author"></li>
         </ul>
+        <a id="commission-preview" href=""><button>Preview/Delete</button></a>
         <form method = "POST" id="taker-form">
             {% csrf_token %}
-            <button id="commission-preview" action="">Preview</button>
             <input type="hidden" id="pknum" name="pknum">
             <button type="submit">Take Job</button>
+
         </form>
     </div>
 
@@ -163,6 +164,7 @@
                 success: function(json) {
                     console.log(json);
                     console.log("success");
+
                 }
 
             });
