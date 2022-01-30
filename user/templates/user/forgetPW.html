@@ -1,4 +1,22 @@
-{% extends "travelingMechanic/index.html" %}
-{% block content %}
-<h1> Forget Password page</h1>
-{% endblock%}
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <title> Forgot Password Page </title>
+      <link rel = "stylesheet" type = "text/css" href = "{%static 'style.css'%}" />
+  </head>
+  <body>
+    <div class = "form">
+    <p>Forgot Password</p>
+     <form action = "/forgotpw" method = "post">
+
+        <label for= ""> Email </label>
+        <input type =  "text" id = "email" name = "email" placeholder = "Enter your email" required>
+
+
+        <button type = "submit"> Forgot Password </button>
+    </form>
+    </div>
+
+  </body>
+</html>
