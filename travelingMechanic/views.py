@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import CreateView
-from .models import Commission, webUser
+from .models import Commission, webUser, review
+from .forms import createReview
 from django import forms
+from django.contrib import messages
 
 # Create your views here.
 def home(request):
@@ -27,5 +29,16 @@ class CommissionCreateView(CreateView):
         form.fields['long'].widget = forms.HiddenInput()
         return form
 
-
+def review(request):
+    if request.method == 'POST':
+        c_form = createReview(request.POST, request.FILES, initial={'author':request.user.webuser})
+        if (c_form.is_valid()):
+            print(c_form.cleaned_data)
+            c_form.save()
+            messages.success(request, 'Your review is posted!')
+            return redirect('home')
+    else:
+        c_form = createReview(initial={'author':request.user.webuser})
+    context = {'title':'Submit review', 'c_form':c_form}
+    return render(request,'travelingMechanic/submitReview.html',context)
 

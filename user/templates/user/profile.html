@@ -1,6 +1,6 @@
 {% extends "travelingMechanic/index.html" %}
 {% load static %}
-
+{% load crispy_forms_tags %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'user/style.css' %}">
 
@@ -8,83 +8,13 @@
   <img src={% static 'images/blankProfilePicture.png' %} class = "profilePic">
 
   <h1 class = "profileName">
-    Jay Chou
+    {{user.username}}
   </h1>
 
-  <h3 class = "username">
-    @mycodeisbetterthanyours
-  </h3>
-
-  <div class="rating">
-    <img src={% static 'images/blankStar.png' %} class = "star">
-    <h6 class = "rating">
-      5.0
-    </h6>
-  </div>
-
-  <div class="uploadPic">
-    <button type = "submit">Upload Picture</button>
-  </div>
-
-  <div class="fullname">
-    <h4>
-      Full Name
-    </h4>
-  </div>
-
-  <div class="fullname2">
-    <input type="text" id = "fullname" value = "Jay Chou">
-  </div>
-
-  <div class="username">
-    <h4>
-      Username
-    </h4>
-  </div>
-
-  <div class="username2">
-    <input type="text" id = "username" value = "mycodeisbetterthanyours">
-  </div>
-
-  <div class="email">
-    <h4>
-      Email
-    </h4>
-  </div>
-
-  <div class="email2">
-    <input type="text" id = "email" value = "jaychou@protonmail.com">
-  </div>
-
-  <div class="editSubmit">
-    <button type = "submit">Confirm Changes</button>
-  </div>
-
-</div>
+  <form style = "margin: 0 0 0 4rem;" method="POST" enctype="multipart/form-data" >
+    {% csrf_token %}
+    {{uForm|crispy}}
+    {{wForm|crispy}}
+    <button type="submit">Submit changes</button>
+  </form>
 {% endblock%}
-
-
-{% block leftPanel %}
-
-<a href="{% url 'user-profile' %}">
-  <div class="publicProfileLink">
-    <img src={% static 'images/blankProfilePicture.png' %} class = "publicProfilePic">
-    <h2 style = "margin: 3.5rem 0 0 13rem">Public Profile</h2>
-  </div>
-</a>
-
-<a href="#">
-  <div class="securityLink">
-    <img src={% static 'images/lock.png' %} class = "securityPic">
-    <h2 style = "margin: 4rem 0 0 13rem">Security</h2>
-  </div>
-</a>
-
-<a href="#">
-  <div class="reviewsLink">
-    <img src={% static 'images/goldStar.png' %} class = "reviewsPic">
-    <h2 style = "margin: 3.8rem 0 0 13rem">Reviews</h2>
-  </div>
-</a>
-
-{% endblock %}

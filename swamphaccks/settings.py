@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'travelingMechanic.apps.TravelingmechanicConfig',
     'payment.apps.PaymentConfig',
     'user.apps.UserConfig',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -134,3 +135,6 @@ MEDIA_URL = '/media/'
 #For login
 LOGIN_REDIRECT_URL = 'user-profile'
 LOGIN_URL = 'home'
+
+#Crispy form
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
