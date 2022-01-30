@@ -21,6 +21,7 @@ def register(request):
         form = UserRegistForm(request.POST)
         if (form.is_valid()):
             form.save()
+            print('hello')
             return redirect('user-login')
     else:
         form = UserRegistForm()
