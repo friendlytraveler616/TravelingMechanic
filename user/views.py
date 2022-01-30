@@ -2,8 +2,10 @@ from django.shortcuts import render, redirect
 from django.views.generic import CreateView, DetailView
 from .forms import UserRegistForm, userUpdateForm, webUserUpdateForm
 from travelingMechanic.models import review, webUser
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required
 def profile(request):
     #Updating requires instance
     if (request.method == 'POST'):
@@ -30,6 +32,7 @@ def register(request):
     context = {"title":"Registration", 'form':form}
     return render(request, 'user/register.html', context)
 
+@login_required
 def user_reviews(request):
     reviewFiltered = review.objects.all().filter(target=request.user.webuser)
     #make the review personalized!
@@ -37,7 +40,7 @@ def user_reviews(request):
     return render(request, 'user/user_reviews.html', context)
 
 def search(request):
-    context = {"title":"search", "users": webUser.objects.all()}
+    context = {"title":"search", "users": webUser.objects.all(), "reviews":review.objects.all()}
     return render(request, 'user/search.html', context)
 
 class SearchDetailView(DetailView):

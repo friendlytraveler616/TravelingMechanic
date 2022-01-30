@@ -5,6 +5,8 @@ from django.http import HttpResponse
 from .forms import createReview
 from django import forms
 import json
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 def home(request):
@@ -26,11 +28,12 @@ def home(request):
     else:
         return render(request, 'travelingMechanic/home.html', context)
 
-class CommissionDetailView(DetailView):
+class CommissionDetailView(LoginRequiredMixin, DetailView):
     model = Commission
     template_name = 'travelingMechanic/detailed.html'
 
-class CommissionCreateView(CreateView):
+
+class CommissionCreateView(LoginRequiredMixin,CreateView):
     model = Commission
     template_name = 'travelingMechanic/commissions.html'
     fields = ['title', 'description', 'askPrice', 'lat', 'long', 'images']
@@ -47,6 +50,7 @@ class CommissionCreateView(CreateView):
         form.fields['images'].required = False
         return form
 
+@login_required
 def review(request):
     if request.method == 'POST':
         c_form = createReview(request.POST, request.FILES, initial={'author':request.user.webuser})

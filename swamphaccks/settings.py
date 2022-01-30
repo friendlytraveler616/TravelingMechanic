@@ -134,7 +134,7 @@ MEDIA_URL = '/media/'
 
 #For login
 LOGIN_REDIRECT_URL = 'user-profile'
-LOGIN_URL = 'home'
+LOGIN_URL = 'user-login'
 
 #Crispy form
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
