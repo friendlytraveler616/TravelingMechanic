@@ -7,3 +7,4 @@ class TravelingmechanicConfig(AppConfig):
 
     def ready(self):
         import travelingMechanic.signals
+

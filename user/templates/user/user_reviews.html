@@ -5,18 +5,16 @@
 <link rel="stylesheet" href="{% static 'user/style.css' %}">
 
 <div class="publicProfile1">
-  <img src={{user.webuser.profilePic.url}} class = "profilePic">
-
   <h1 class = "profileName">
     {{user.first_name}} {{user.last_name}}
   </h1>
 
-  <form style = "margin: 0 0 0 4rem;" method="POST" enctype="multipart/form-data" >
-    {% csrf_token %}
-    {{uForm|crispy}}
-    {{wForm|crispy}}
-    <button type="submit">Submit changes</button>
-  </form>
+  <h3>Reviews for {{user.username}}</h3>
+    {%for review in reviews%}
+        <h5>Review by {{review.author.user.username}}</h5>
+        <h6>Stars: {{review.stars}}</h6>
+        <h6>{{review.description}}</h6>
+    {%endfor%}
 {% endblock%}
 {% block leftPanel %}
 

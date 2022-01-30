@@ -139,7 +139,7 @@
         <form method = "POST" id="taker-form">
             {% csrf_token %}
             <button id="commission-preview" action="">Preview</button>
-            <input type="hidden" id="pknum">
+            <input type="hidden" id="pknum" name="pknum">
             <button type="submit">Take Job</button>
         </form>
     </div>
@@ -148,8 +148,41 @@
         $('#taker-form').on('submit', function(event){
             event.preventDefault();
             console.log("form submitted!")
-            create_post();
+            send_pk();
         });
+
+        function send_pk() {
+            console.log("create post is working!")
+            console.log($('#pknum').val())
+            $.ajax({
+                headers: {"X-CSRFToken": getCookie("csrftoken")},
+                url: '',
+                type : 'POST',
+                data : {pknum: $('#pknum').val()},
+
+                success: function(json) {
+                    console.log(json);
+                    console.log("success");
+                }
+
+            });
+        }
+
+        function getCookie(c_name)
+        {
+            if (document.cookie.length > 0)
+            {
+                c_start = document.cookie.indexOf(c_name + "=");
+                if (c_start != -1)
+                {
+                    c_start = c_start + c_name.length + 1;
+                    c_end = document.cookie.indexOf(";", c_start);
+                    if (c_end == -1) c_end = document.cookie.length;
+                    return unescape(document.cookie.substring(c_start,c_end));
+                }
+            }
+            return "";
+         }
     </script>
 
     {% for commission in commissions %}

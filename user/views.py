@@ -1,6 +1,15 @@
 from django.shortcuts import render, redirect
+from django.views.generic import CreateView, DetailView
 from .forms import UserRegistForm, userUpdateForm, webUserUpdateForm
+<<<<<<< HEAD
 from travelingMechanic.models import review
+=======
+from travelingMechanic.models import review, webUser
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9d417ac7ee2943f97d551fa4f27a586171121110
+>>>>>>> 880a134c15f924bdacf361592a1bd31ea7aaa66d
 # Create your views here.
 def profile(request):
     #Updating requires instance
@@ -22,11 +31,11 @@ def register(request):
         form = UserRegistForm(request.POST)
         if (form.is_valid()):
             form.save()
-            print('hello')
             return redirect('user-login')
     else:
         form = UserRegistForm()
     context = {"title":"Registration", 'form':form}
+<<<<<<< HEAD
 
     return render(request, 'user/register.html', context)
 
@@ -55,3 +64,20 @@ def rev(request):
     context = {"title":"Reviews?", "reviews": review.objects.all().filter(target = request.user.webuser)}
     return render(request, 'user/reviews.html', context)
 
+=======
+    return render(request, 'user/register.html', context)
+
+def user_reviews(request):
+    reviewFiltered = review.objects.all().filter(target=request.user.webuser)
+    #make the review personalized!
+    context={'title':'Reviews', 'reviews':reviewFiltered}
+    return render(request, 'user/user_reviews.html', context)
+
+def search(request):
+    context = {"title":"search", "users": webUser.objects.all()}
+    return render(request, 'user/search.html', context)
+
+class SearchDetailView(DetailView):
+    model = webUser
+    template_name = 'user/search.html'
+>>>>>>> 880a134c15f924bdacf361592a1bd31ea7aaa66d

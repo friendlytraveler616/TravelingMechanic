@@ -14,6 +14,7 @@ class userUpdateForm(forms.ModelForm):
         model = User
         fields = ['first_name', 'last_name', 'username', 'email']
 
+
 class webUserUpdateForm(forms.ModelForm):
     class Meta:
         model = webUser
