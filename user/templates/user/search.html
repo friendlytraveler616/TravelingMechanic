@@ -32,8 +32,8 @@
   {% if object.images%}
       <img src={{object.profilePic.url}}>
   {% endif %}
-  <h2>{{object.user.name}}</h2>
-  <h2>{{object.user.username}}</h2>
-  <h2>{{object.rating}} </h2>
+  <h2>  {{object.user.first_name}} {{object.user.last_name}}</h2>
+  <h2>  Rating: {{object.rating}} </h2>
+  <img src={{object.user.webuser.profilePic.url}}>
 
 {% endblock %}
