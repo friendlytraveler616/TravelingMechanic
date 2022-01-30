@@ -5,10 +5,10 @@
 <link rel="stylesheet" href="{% static 'user/style.css' %}">
 
 <div class="publicProfile1">
-  <img src={% static 'images/blankProfilePicture.png' %} class = "profilePic">
+  <img src={{user.webuser.profilePic.url}} class = "profilePic">
 
   <h1 class = "profileName">
-    {{user.username}}
+    {{user.first_name}} {{user.last_name}}
   </h1>
 
   <form style = "margin: 0 0 0 4rem;" method="POST" enctype="multipart/form-data" >
