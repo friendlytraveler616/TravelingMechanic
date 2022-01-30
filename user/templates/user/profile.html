@@ -1,6 +1,6 @@
 {% extends "travelingMechanic/index.html" %}
 {% load static %}
-
+{% load crispy_forms_tags %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'user/style.css' %}">
 
@@ -8,14 +8,13 @@
   <img src={% static 'images/blankProfilePicture.png' %} class = "profilePic">
 
   <h1 class = "profileName">
-    Jay Chou
+    {{user.username}}
   </h1>
 
-  <form>
-    <form method="POST" enctype="multipart/form-data">
+  <form style = "margin: 0 0 0 4rem;" method="POST" enctype="multipart/form-data" >
     {% csrf_token %}
-    {{uForm.as_p}}
-    {{wForm.as_p}}
+    {{uForm|crispy}}
+    {{wForm|crispy}}
     <button type="submit">Submit changes</button>
   </form>
 {% endblock%}

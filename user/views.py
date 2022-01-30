@@ -6,8 +6,8 @@ def profile(request):
     if (request.method == 'POST'):
         uForm = userUpdateForm(request.POST, instance=request.user)
         wForm = webUserUpdateForm(request.POST, request.FILES,  instance=request.user.webuser)
-        print(request.FILES)
         if (uForm.is_valid() and wForm.is_valid()):
+            print(uForm.clean_data)
             uForm.save()
             wForm.save()
     else:
