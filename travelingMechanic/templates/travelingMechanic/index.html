@@ -18,7 +18,31 @@
     {% endif %}
   </head>
   <body>
-    {% block content %}{% endblock %}
+    <div class="leftSpan">
+      <!-- NAV bar goes here -->
+      <div class = "clearfix">
+        {% if user.is_authenticated %}
+        <span class = "menu">
+          <a class = "menu" href = ""><img src={{user.webuser.profilePic.url}} class = "navpics"></a>
+        </span>
+        {% else %}
+        <span class = "menu">
+          <a class = "menu" href = ""><img src={% static 'images/blankProfilePicture.png' %} class = "navpics"></a>
+        </span>
+        {% endif %}
+        <span class = "menu">
+          <a class = "menu" href = ""><img src={% static 'images/searchSymbol.png' %} class = "navpics"></a></span
+        ><span class = "menu"><a class = "menu" href = ""><img src={% static 'images/mapSymbol.png' %} class = "navpics"></a></span
+      ></div>
+      <!-- LEFT block goes here -->
+      <div class="leftblock">
+
+      </div>
+    </div>
+    <div class = "rightSpan">
+      <!-- RIGHT block goes here -->
+      {% block content %}{% endblock %}
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
 </html>

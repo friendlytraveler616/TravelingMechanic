@@ -133,4 +133,4 @@ MEDIA_URL = '/media/'
 
 #For login
 LOGIN_REDIRECT_URL = 'user-profile'
-LOGIN_URL = 'user-login'
+LOGIN_URL = 'home'
