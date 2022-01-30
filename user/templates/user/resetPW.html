@@ -1,3 +1,4 @@
+{%load crispy_forms_tags%}
 {%load static%}
 <!DOCTYPE html>
 <html lang="en">
@@ -8,16 +9,10 @@
   <body>
     <div class = "form">
     <p>Reset Password</p>
-     <form action = "/resetpw" method = "post">
-
-        <label for= ""> Password </label>
-        <input type =  "text" id = "password" name = "password" placeholder = "Enter your new password" required>
-        <label for= ""> Confirm Password </label>
-        <input type =  "text" id = "password" name = "password" placeholder = "Re-enter your new password" required>
-
-
-
-        <button type = "submit"> Reset Password </button>
+     <form method="POST" >
+        {%csrf_token%}
+        {{form|crispy}}
+        <button type="submit"> Reset Password Request</button>
     </form>
     </div>
 
