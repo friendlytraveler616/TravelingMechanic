@@ -2,10 +2,39 @@
 {% load static %}
 {% block content %}
     <h1>{{object.title}}</h1>
+    <h3>Description: {{object.description}}</h3>
+    <h3>Latitude: {{object.lat}} </h3>
+    <h3>Longitude: {{object.long}}</h3>
+    <h3>Reward offer: ${{object.askPrice}}</h3>
+    <h3>Date created: {{object.date_created}}</h3>
+    <h3>Posted by: {{object.author.user.username}}</h3>
+    {% if object.taker%}
+        <h3>this job is taken by {{object.taker.user.username}}</h3>
+    {% else %}
+        <h3>This job is not taken</h3>
+    {% endif %}
+    {% if object.done%}
+        <h3>this job is finished</h3>
+    {% else %}
+        <h3>Not completed</h3>
+    {% endif %}
+    {% if object.images%}
+        <img src={{object.images.url}}>
+    {% endif %}
 {% endblock content %}
 {% block leftPanel %}
   <!-- iteractive commission panel goes here -->
-    {% for commission in commissions%}
-        <a href="{%url 'commission-detail' commission.id%}"><button>{{commission.title}}</button></a>
-    {% endfor %}
+
+
+
+<!--title = models.CharField(max_length=200)-->
+<!--    description = models.CharField(max_length=300, blank=True)-->
+<!--    lat = models.FloatField(default=-82.374);-->
+<!--    long = models.FloatField(default=29.648);-->
+<!--    askPrice = models.FloatField(default=0, validators=[validators.MinValueValidator(0)])-->
+<!--    images = models.ImageField(default='default.png', upload_to='commissionpic/')-->
+<!--    date_created = models.DateTimeField(default=timezone.now)-->
+<!--    author = models.ForeignKey(webUser, on_delete=models.CASCADE, related_name='author_requests_created')-->
+<!--    taker = models.ForeignKey(webUser, on_delete=models.CASCADE, blank=True, null=True, related_name='taker_requests_created')-->
+<!--    done = models.BooleanField(default=False)-->
 {% endblock %}
