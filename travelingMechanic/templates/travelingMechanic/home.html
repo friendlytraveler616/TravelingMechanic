@@ -65,7 +65,7 @@
            {% for point in commissions %}
                 {% if point.lat == None %}
                 {% else %}
-                ['<a id="marker-link" style = "text-decoration: none; color: black" href={% url 'commission-detail' point.id %}><h4>{{ point.title }}</h4></a>', {{ point.lat }}, {{ point.long }},
+                ['<a style = "text-decoration: none; color: black;" id="marker-link" href={% url 'commission-detail' point.id %}><h4>{{ point.title }}</h4></a>', {{ point.lat }}, {{ point.long }},
                 {{ point.id }}, '{{ point.description }}', {{ point.askPrice }}, '{{ point.author.user.username }}',
                 '{% url 'commission-detail' point.id %}'],
 
@@ -130,11 +130,11 @@
   <!-- iteractive commission panel goes here -->
 
     <div id="commission-info" style="display: none">
-        <ul style = "list-style-type: none;" class = "commission" id="commission-list">
-            <li id="commission-title"></li>
-            <li id="commission-description"></li>
-            <li id="commission-asking-price"></li>
-            <li id="commission-author"></li>
+        <ul style = "list-style-type: none; align-items: center;" class = "commission" id="commission-list">
+            <li class = "buttonTitle" id="commission-title"></li>
+            <li class = "standardtext" id="commission-description"></li>
+            <li class = "standardtext" id="commission-asking-price"></li>
+            <li class = "standardtext" id="commission-author"></li>
         </ul>
         <a id="commission-preview" href=""><button>Preview/Delete</button></a>
         <form method = "POST" id="taker-form">
@@ -186,10 +186,15 @@
             return "";
          }
     </script>
-
+    <div id = "box" style = "padding-top: 0rem;">
+      <h2 style = "text-align: center; padding: 1rem 1rem 1rem 1rem; background-color: #4db8ff;">Commisions Near You!</h2>
     {% for commission in commissions %}
-        <a href="{%url 'commission-detail' commission.id%}">
-          <button>{{commission.title}}</button>
+        <a href="{%url 'commission-detail' commission.id%}" style = "text-decoration: none;margin: 0 0 0 0;">
+          <div class="clickable" style = "margin: 0 0 0 0;">
+            <h3>{{commission.title}}<br></h3>
+          </div>
         </a>
     {% endfor %}
+    </div>
+
 {% endblock %}

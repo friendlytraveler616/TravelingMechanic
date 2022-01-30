@@ -6,7 +6,45 @@
 
 ul.commission
 {
-  list-style-type: none;
+padding-left: 0;
+   text-decoration: none;
+   color: black;
+   list-style-type: none;
+   align-items: center;
+   text-align:left
+}
+
+li:first-child {
+    margin-top: 0;
+    padding-left: 0;
+    background-color: #4db8ff;
+    text-align: center;
+    font-size: 3rem;
+    padding: 1.5rem;
+}
+
+li{
+  margin-top: 0.25rem;
+
+  padding-left: 2rem;
+  align-items: center;
+  text-align:left
+
+}
+
+/* li.buttonTitle
+{
+  padding-left: -2rem;
+   /* margin: 1rem 10rem 1rem 10rem; */
+    background-color: #4db8ff;
+    font-size: 3rem;
+} */
+
+li.standardtext
+{
+  font-size: 1.5rem;
+  align-items: center;
+  left: 50%;
 }
 
 span.vertical
