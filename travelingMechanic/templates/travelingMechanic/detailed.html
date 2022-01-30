@@ -21,6 +21,8 @@
     {% if object.images%}
         <img src={{object.images.url}}>
     {% endif %}
+
+    <a href="{% url 'commission-delete' object.id%}">Delete</a>
 {% endblock content %}
 {% block leftPanel %}
   <!-- iteractive commission panel goes here -->

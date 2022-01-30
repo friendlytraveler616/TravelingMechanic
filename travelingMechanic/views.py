@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView, DetailView, DeleteView
 from .models import Commission, webUser, review
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.http import HttpResponse
 from .forms import createReview
 from django import forms
@@ -63,4 +64,14 @@ def review(request):
         c_form = createReview(initial={'author':request.user.webuser})
     context = {'title':'Submit review', 'c_form':c_form}
     return render(request,'travelingMechanic/submitReview.html',context)
+
+class CommissionDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Commission
+    success_url = '/'
+
+    def test_func(self):
+        commission = self.get_object()
+        if self.request.user == commission.author.user:
+            return True
+        return False
 

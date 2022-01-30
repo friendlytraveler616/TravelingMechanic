@@ -3,7 +3,6 @@ from django.views.generic import CreateView, DetailView
 from .forms import UserRegistForm, userUpdateForm, webUserUpdateForm
 from travelingMechanic.models import review, webUser
 from django.contrib.auth.decorators import login_required
-
 # Create your views here.
 @login_required
 def profile(request):
@@ -46,4 +45,3 @@ def search(request):
 class SearchDetailView(DetailView):
     model = webUser
     template_name = 'user/search.html'
-

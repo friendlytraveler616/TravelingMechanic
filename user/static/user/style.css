@@ -1,17 +1,18 @@
 div.publicProfile1
 {
-  display: grid;
+  /* display: grid; */
 
   float: left;
-  grid-template-columns: 1fr 6fr;
-  grid-template-rows: 1fr;
+  /* grid-template-columns: 1fr 6fr; */
+  /* grid-template-rows: 1fr; */
   height: 100vh;
   width: 100%;
   min-width: 40rem;
   min-height: 100%;
-  grid-auto-rows: minmax(auto, 20rem);
+  /* grid-auto-rows: minmax(auto, 20rem); */
   overflow:scroll;
   overflow-x: hidden;
+  padding-bottom: 5rem;
   /* background-color: #6abadeba; */
 }
 
@@ -22,7 +23,7 @@ img.profilePic
   grid-column: 1;
   grid-row: 1;
 
-  margin: 1rem 1rem 0rem 2rem;
+  margin: 1rem 1rem 1rem 2rem;
 
   width: 21%;
   max-width: 16rem;
@@ -51,7 +52,7 @@ h1.profileName
   grid-column: 2;
   grid-row: 1;
   font-size: 4rem;
-  margin: 3rem 0% 0% -13rem;
+  margin: 6rem 0% 12% -13rem;
   min-width: 40rem;
   width: 60%;
   overflow: hidden;
@@ -148,13 +149,18 @@ div.editSubmit
 
 div.publicProfileLink
 {
-  background-color: #D3F8F9;
   width: 100%;
-  min-width: 100%;
+  min-width: 100
   float: left;
   padding: 0 0 1rem 0;
+}
+
+#on
+{
+  background-color: #D3F8F9;
   focus: enabled;
 }
+
 div.publicProfileLink:hover
 {
   background-color: #a5f0f3;
@@ -200,6 +206,18 @@ div.reviewsLink:hover
 }
 
 div.reviewsLink:focus
+{
+    background-color: #D3F8F9;
+    transition: all 1s ease 0s;
+}
+
+div.reviewsLink1:hover
+{
+  background-color: #a5f0f3;
+  transition: all 1s ease 0s;
+}
+
+div.reviewsLink1:focus
 {
     background-color: #D3F8F9;
     transition: all 1s ease 0s;

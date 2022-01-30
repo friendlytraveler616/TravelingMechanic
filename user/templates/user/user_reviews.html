@@ -3,25 +3,23 @@
 {% load crispy_forms_tags %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'user/style.css' %}">
-
-<div class="publicProfile1">
-  <h1 class = "profileName">
-    {{user.first_name}} {{user.last_name}}
-  </h1>
-
-  <h3>Reviews for {{user.username}}</h3>
+  <div style = "margins: 1rem 4rem 1rem 4rem">
+    <h3 style = "font-size: 4rem; padding: 1rem 1rem 1rem 1rem; width: 100%; border-bottom: 0.2rem solid black;">Reviews for {{user.first_name}} {{user.last_name}}</h3>
     {%for review in reviews%}
-        <h5>Review by {{review.author.user.username}}</h5>
-        <h6>Stars: {{review.stars}}</h6>
-        <h6>{{review.description}}</h6>
+      <div style = "width: 100%; position: relative; background-color: #f0f0f5; padding: 3em 2rem 3rem 2rem; margins: 5rem 0rem 5rem 0rem; border-radius: 5%;">
+        <h5 style = "font-size: 2.5rem; padding: 0.5rem 0.5rem 0.5rem 0.5rem">Review by {{review.author.user.username}}</h5>
+        <h6 style = "font-size: 1.8rem; padding: 0.5rem 0.5rem 0.5rem 0.5rem">Stars: {{review.stars}}</h6>
+        <h6 style = "font-size: 1.5rem; padding: 0.5rem 0.5rem 0.5rem 0.5rem">{{review.description}}</h6>
+      </div>
     {%endfor%}
+  </div>
 {% endblock%}
 {% block leftPanel %}
 
-<a href="{% url 'user-profile' %}">
+<a href="{% url 'user-profile' %}" style = "text-decoration: none">
   <div class="publicProfileLink">
     <img src={{user.webuser.profilePic.url}} class = "publicProfilePic">
-    <h2 style = "margin: 3.5rem 0 0 13rem">Public Profile</h2>
+    <h2 style = "padding: 3.5rem 0 2rem 13rem">Public Profile</h2>
   </div>
 </a>
 
@@ -33,7 +31,7 @@
 </a>
 
 <a href="{% url 'user-reviews'%}">
-  <div class="reviewsLink">
+  <div class="reviewsLink" id = "on">
     <img src={% static 'images/goldStar.png' %} class = "reviewsPic">
     <h2 style = "margin: 3.8rem 0 0 13rem">Reviews</h2>
   </div>
