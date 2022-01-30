@@ -40,12 +40,13 @@
           <a class = "menu" href = "{% url 'user-search' %}"><img src={% static 'images/searchSymbol.png' %} class = "navpics"></a></span
         ><span class = "menu"><a class = "menu" href = "{% url 'home' %}"><img src={% static 'images/mapSymbol.png' %} class = "navpics"></a></span
       >
-        <a href="{%url 'review-page'%}"><button>Give review!</button></a>
       </div>
       <!-- LEFT block goes here -->
       <div class="leftblock">
+
           {% block leftPanel %}
           {% endblock %}
+          <a id="reviewBtn" href="{%url 'review-page'%}"><button>Give review!</button></a>
       </div>
     </div>
     <span class="vertical">
