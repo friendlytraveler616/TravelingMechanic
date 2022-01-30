@@ -1,8 +1,12 @@
 from django.shortcuts import render, redirect
 from django.views.generic import CreateView, DetailView
 from .forms import UserRegistForm, userUpdateForm, webUserUpdateForm
+from travelingMechanic.models import review
+
 from travelingMechanic.models import review, webUser
+
 from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 @login_required
 def profile(request):
@@ -29,6 +33,34 @@ def register(request):
     else:
         form = UserRegistForm()
     context = {"title":"Registration", 'form':form}
+
+    return render(request, 'user/register.html', context)
+
+def forgetPW(request):
+    context = {"title":"Forgot Password?"}
+    return render(request, 'user/forgetPW.html', context)
+
+def resetPW(request):
+    context = {"title":"Reset Password?"}
+    return render(request, 'user/resetPW.html', context)
+
+def emailsent(request):
+    context = {"title":"Email Sent?"}
+    return render(request, 'user/emailsent.html', context)
+
+def completePW(request):
+    context = {"title":"Password Complete?"}
+    return render(request, 'user/completePW.html', context)
+
+def security(request):
+    context = {"title":"Security?"}
+    return render(request, 'user/security.html', context)
+
+def rev(request):
+
+    context = {"title":"Reviews?", "reviews": review.objects.all().filter(target = request.user.webuser)}
+    return render(request, 'user/reviews.html', context)
+
     return render(request, 'user/register.html', context)
 
 @login_required
@@ -45,3 +77,4 @@ def search(request):
 class SearchDetailView(DetailView):
     model = webUser
     template_name = 'user/search.html'
+

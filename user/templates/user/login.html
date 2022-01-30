@@ -6,9 +6,9 @@
       <title> Login Page </title>
       <link rel = "stylesheet" type = "text/css" href = "{%static 'style.css'%}" />
   </head>
-  <body>
+   <body style = "background-image: url({% static 'images/colorful.jpeg' %});  background-repeat: no-repeat;  background-size: cover;">
     <div class = "form">
-    <p>Login</p>
+    <p>Traveling Mechanics</p>
     <form method="POST" >
         {%csrf_token%}
         {{form|crispy}}
