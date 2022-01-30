@@ -1,7 +1,6 @@
 {% extends "travelingMechanic/index.html" %}
 {% load static %}
 {% block content %}
-
 <div id="map"></div>
 <!-- Have a refresh button that pulls coordinates and updates map -->
 
@@ -25,4 +24,7 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeIsksLrYM0yZshKCRI2UOfY58OU6_bHI&callback=initMap&v=weekly"
       async defer
     ></script>
+{% endblock %}
+{% block leftPanel %}
+  <!-- iteractive commission panel goes here -->
 {% endblock %}
