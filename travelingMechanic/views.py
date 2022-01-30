@@ -1,23 +1,29 @@
 from django.shortcuts import render, redirect
 from django.views.generic import CreateView, DetailView
 from .models import Commission, webUser, review
+from django.http import HttpResponse
 from .forms import createReview
 from django import forms
 import json
 
 # Create your views here.
 def home(request):
+    context = {
+        'commissions': Commission.objects.all(),
+        'title': 'Home',
+    }
     if request.method == "POST":
         pknum = request.POST.get('pknum')
-        com = Commission.objects.filter(id="pknum")
-        print(com)
-
+        response_data = {}
+        com = Commission.objects.filter(id=pknum).first()
+        if(com.author != request.user.webuser):
+            com.taker = request.user.webuser
+            com.save()
+            response_data['result'] = "Successfully Updated Commission!"
+        else:
+            response_data['result'] = "Failed!"
+        return HttpResponse(json.dumps(response_data), content_type="application/json")
     else:
-        context = {
-            'commissions': Commission.objects.all(),
-            'title': 'Home',
-            # 'taker_form': takerForm
-        }
         return render(request, 'travelingMechanic/home.html', context)
 
 class CommissionDetailView(DetailView):
