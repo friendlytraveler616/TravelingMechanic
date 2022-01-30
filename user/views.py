@@ -6,10 +6,13 @@ from travelingMechanic.models import review
 =======
 from travelingMechanic.models import review, webUser
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 9d417ac7ee2943f97d551fa4f27a586171121110
 >>>>>>> 880a134c15f924bdacf361592a1bd31ea7aaa66d
+=======
+>>>>>>> 6571f9aa14918483ab5e2dd599de0f0070dc858b
 # Create your views here.
 def profile(request):
     #Updating requires instance
