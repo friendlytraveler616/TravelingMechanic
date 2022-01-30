@@ -1,7 +1,36 @@
 {% extends "travelingMechanic/index.html" %}
 {% load static %}
 {% block content %}
+<head>
+  <style>
+    .exclamationMark
+    {
+      right: 5rem;
+      bottom: 2rem;
+      margin 90% 1% 1% 90%;
+      width: 12rem;
+      z-index: 9;
+      position: absolute;
+      border-radius: 50%;
+
+      -webkit-filter: sepia(0%);
+      filter: sepia(0%);
+      -webkit-transition: .3s ease-in-out;
+      transition: .3s ease-in-out;
+    }
+    .exclamationMark:hover
+    {
+      -webkit-filter: sepia(50%);
+      filter: sepia(50%);
+    }
+  </style>
+</head>
 <div id="map"></div>
+<a href="#">
+  <div class="requestCommission" style = "z-index: 9">
+    <img src={% static 'images/exclamationMark.png' %} class = "exclamationMark">
+  </div>
+</a>
 <!-- Have a refresh button that pulls coordinates and updates map -->
 
 
