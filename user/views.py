@@ -7,13 +7,18 @@ from travelingMechanic.models import review
 from travelingMechanic.models import review, webUser
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 9d417ac7ee2943f97d551fa4f27a586171121110
 >>>>>>> 880a134c15f924bdacf361592a1bd31ea7aaa66d
 =======
 >>>>>>> 6571f9aa14918483ab5e2dd599de0f0070dc858b
+=======
+from django.contrib.auth.decorators import login_required
+>>>>>>> 7fef328eb8ba5d4ce4dc2692a632b9da07030af1
 # Create your views here.
+@login_required
 def profile(request):
     #Updating requires instance
     if (request.method == 'POST'):
@@ -70,6 +75,7 @@ def rev(request):
 =======
     return render(request, 'user/register.html', context)
 
+@login_required
 def user_reviews(request):
     reviewFiltered = review.objects.all().filter(target=request.user.webuser)
     #make the review personalized!
@@ -77,7 +83,7 @@ def user_reviews(request):
     return render(request, 'user/user_reviews.html', context)
 
 def search(request):
-    context = {"title":"search", "users": webUser.objects.all()}
+    context = {"title":"search", "users": webUser.objects.all(), "reviews":review.objects.all()}
     return render(request, 'user/search.html', context)
 
 class SearchDetailView(DetailView):
