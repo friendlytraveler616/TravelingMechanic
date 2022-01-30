@@ -9,7 +9,7 @@ import json
 def home(request):
     commissions = Commission.objects.all()
     data = Commission.objects.filter(lat__isnull=False)
-    return render(request, 'travelingMechanic/home.html', {'data': data,'title': 'Home', 'commissions':commissions})
+    return render(request, 'travelingMechanic/home.html', {'data': data,'title': 'Home', 'commissions': commissions})
 
 class CommissionDetailView(DetailView):
     model = Commission
