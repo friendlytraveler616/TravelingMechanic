@@ -1,10 +1,15 @@
-{% extends "travelingMechanic/index.html" %}
-{% block content %}
-<<<<<<< HEAD
 
-<h1> Sign Up </h1>
-
-    <form action = "/register" method = "post">
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <title> Sign Up Page </title>
+      <link rel = "stylesheet" type = "text/css" href = "{%static 'style.css'%}" />
+  </head>
+  <body>
+    <div class = "form">
+    <p>Sign Up</p>
+     <form action = "/register" method = "post">
 
         <label for= ""> Name </label>
         <input type =  "text" id = "name" name = "name" placeholder = "Enter your name" required>
@@ -19,15 +24,10 @@
 
         <button type = "submit"> Sign Up </button>
     </form>
+    </div>
+
+  </body>
+</html>
 
 
 
-{% endblock %}
-=======
-    <form method="POST">
-        {% csrf_token %}
-        {{form.as_table}}
-        <button class type="submit">Sign up</button>
-    </form>
-{% endblock%}
->>>>>>> 5ff21765d46e865217690cef37c2c7cf7e4ceec1
