@@ -1,0 +1,35 @@
+{% extends "travelingMechanic/index.html" %}
+{% load static %}
+
+{% block leftPanel %}
+<link rel="stylesheet" href="{% static 'user/style.css' %}">
+<link rel="stylesheet" href="{% static 'user/searchStyle.css' %}">
+
+
+<input id = "search_here" class = "form_control" placeholder="type here to search..." style = "width: 100%; height: 10%;margin: 0 0 0 0;">
+<div id = "box">
+    {% for user in users %}
+    <a href="{% url 'user-detail' user.id %}">
+      <div class="clickable">
+        <h3>{{user.user.username}}<br></h3>
+      </div>
+    </a>
+
+    {% endfor %}
+</div>
+
+<script type="text/javascript">
+  </script>
+
+
+{% endblock %}
+
+{% block content %}
+  {% if object.images%}
+      <img src={{object.profilePic.url}}>
+  {% endif %}
+  <h2>{{object.user.name}}</h2>
+  <h2>{{object.user.username}}</h2>
+  <h2>{{object.rating}} </h2>
+
+{% endblock %}

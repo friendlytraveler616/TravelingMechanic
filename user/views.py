@@ -1,6 +1,11 @@
 from django.shortcuts import render, redirect
+from django.views.generic import CreateView, DetailView
 from .forms import UserRegistForm, userUpdateForm, webUserUpdateForm
+<<<<<<< HEAD
 from travelingMechanic.models import review
+=======
+from travelingMechanic.models import webUser
+>>>>>>> 075529748ccf4c811b8dc8584874adcf30caf4d2
 # Create your views here.
 def profile(request):
     #Updating requires instance
@@ -33,3 +38,12 @@ def user_reviews(request):
     #make the review personalized!
     context={'title':'Reviews', 'reviews':reviewFiltered}
     return render(request, 'user/user_reviews.html', context)
+
+def search(request):
+    context = {"title":"search", "users": webUser.objects.all()}
+    return render(request, 'user/search.html', context)
+
+class SearchDetailView(DetailView):
+    model = webUser
+    template_name = 'user/search.html'
+
