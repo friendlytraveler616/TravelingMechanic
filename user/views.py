@@ -24,3 +24,7 @@ def register(request):
 def forgetPW(request):
     context = {"title":"Forgot Password?"}
     return render(request, 'user/forgetPW.html', context)
+
+def resetPW(request):
+    context = {"title":"Reset Password?"}
+    return render(request, 'user/resetPW.html', context)
