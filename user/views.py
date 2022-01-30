@@ -1,11 +1,8 @@
 from django.shortcuts import render, redirect
 from django.views.generic import CreateView, DetailView
 from .forms import UserRegistForm, userUpdateForm, webUserUpdateForm
-<<<<<<< HEAD
-from travelingMechanic.models import review
-=======
-from travelingMechanic.models import webUser
->>>>>>> 075529748ccf4c811b8dc8584874adcf30caf4d2
+from travelingMechanic.models import review, webUser
+
 # Create your views here.
 def profile(request):
     #Updating requires instance
