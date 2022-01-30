@@ -1,6 +1,7 @@
 {% extends "travelingMechanic/index.html" %}
 {% load static %}
 {% block content %}
+    <h1>Post your commission</h1>
     <div class="content-section">
         <form method="POST" id="new-commission-form" enctype='multipart/form-data'>
             {% csrf_token %}
