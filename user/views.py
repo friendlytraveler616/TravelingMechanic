@@ -43,3 +43,7 @@ def emailsent(request):
 def completePW(request):
     context = {"title":"Password Complete?"}
     return render(request, 'user/completePW.html', context)
+
+def security(request):
+    context = {"title":"Security?"}
+    return render(request, 'user/security.html', context)
