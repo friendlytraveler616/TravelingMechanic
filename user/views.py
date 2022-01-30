@@ -39,3 +39,11 @@ def forgetPW(request):
 def resetPW(request):
     context = {"title":"Reset Password?"}
     return render(request, 'user/resetPW.html', context)
+
+def emailsent(request):
+    context = {"title":"Email Sent?"}
+    return render(request, 'user/emailsent.html', context)
+
+def completePW(request):
+    context = {"title":"Password Complete?"}
+    return render(request, 'user/completePW.html', context)
