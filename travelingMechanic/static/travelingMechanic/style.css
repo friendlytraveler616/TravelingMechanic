@@ -32,6 +32,21 @@ li{
 
 }
 
+#commission-description, #commission-asking-price, #commission-author{
+  background-color: white;
+  hover: none;
+  font-size: 2rem;
+}
+
+#reviewBtn{
+  position: absolute;
+  bottom: 2%;
+  left: 20%;
+
+}
+
+
+
 /* li.buttonTitle
 {
   padding-left: -2rem;
