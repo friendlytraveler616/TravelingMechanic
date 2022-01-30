@@ -1,0 +1,27 @@
+a
+{
+  text-decoration: none
+}
+
+div.clickable
+{
+  align-self: center;
+  margin: 0 0 0 0rem;
+  padding: 0.5rem 0.5rem 0.5rem 1.7rem
+}
+
+h3
+{
+  color: black
+}
+
+div.clickable:hover
+{
+  background-color: #a5f0f3;
+  transition: all 1s ease 0s;
+}
+div.clickable:focus
+{
+  background-color: #D3F8F9;
+  transition: all 1s ease 0s;
+}

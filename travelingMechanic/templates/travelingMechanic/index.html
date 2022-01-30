@@ -19,6 +19,11 @@
     {% endif %}
   </head>
   <body>
+    {% if messages %}
+      {% for message in messages%}
+        <h3>{{message}}</h3>
+      {% endfor %}
+    {% endif %}
     <div class="leftSpan">
       <!-- NAV bar goes here -->
       <div class = "clearfix">
@@ -32,7 +37,7 @@
         </span>
         {% endif %}
         <span class = "menu">
-          <a class = "menu" href = "{% url 'home' %}"><img src={% static 'images/searchSymbol.png' %} class = "navpics"></a></span
+          <a class = "menu" href = "{% url 'user-search' %}"><img src={% static 'images/searchSymbol.png' %} class = "navpics"></a></span
         ><span class = "menu"><a class = "menu" href = "{% url 'home' %}"><img src={% static 'images/mapSymbol.png' %} class = "navpics"></a></span
       ></div>
       <!-- LEFT block goes here -->
