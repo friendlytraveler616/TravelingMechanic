@@ -65,7 +65,7 @@
            {% for point in commissions %}
                 {% if point.lat == None %}
                 {% else %}
-                ['<a id="marker-link" href={% url 'commission-detail' point.id %}><h4>{{ point.title }}</h4></a>', {{ point.lat }}, {{ point.long }},
+                ['<a id="marker-link" style = "text-decoration: none; color: black" href={% url 'commission-detail' point.id %}><h4>{{ point.title }}</h4></a>', {{ point.lat }}, {{ point.long }},
                 {{ point.id }}, '{{ point.description }}', {{ point.askPrice }}, '{{ point.author.user.username }}',
                 '{% url 'commission-detail' point.id %}'],
 
@@ -130,7 +130,7 @@
   <!-- iteractive commission panel goes here -->
 
     <div id="commission-info" style="display: none">
-        <ul id="commission-list">
+        <ul style = "list-style-type: none;" class = "commission" id="commission-list">
             <li id="commission-title"></li>
             <li id="commission-description"></li>
             <li id="commission-asking-price"></li>
@@ -188,6 +188,8 @@
     </script>
 
     {% for commission in commissions %}
-        <a href="{%url 'commission-detail' commission.id%}"><button>{{commission.title}}</button></a>
+        <a href="{%url 'commission-detail' commission.id%}">
+          <button>{{commission.title}}</button>
+        </a>
     {% endfor %}
 {% endblock %}
