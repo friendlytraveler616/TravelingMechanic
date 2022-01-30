@@ -1,22 +1,12 @@
 from django.shortcuts import render, redirect
 from django.views.generic import CreateView, DetailView
 from .forms import UserRegistForm, userUpdateForm, webUserUpdateForm
-<<<<<<< HEAD
 from travelingMechanic.models import review
-=======
-from travelingMechanic.models import review, webUser
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
->>>>>>> 9d417ac7ee2943f97d551fa4f27a586171121110
->>>>>>> 880a134c15f924bdacf361592a1bd31ea7aaa66d
-=======
->>>>>>> 6571f9aa14918483ab5e2dd599de0f0070dc858b
-=======
+from travelingMechanic.models import review, webUser
+
 from django.contrib.auth.decorators import login_required
->>>>>>> 7fef328eb8ba5d4ce4dc2692a632b9da07030af1
+
 # Create your views here.
 @login_required
 def profile(request):
@@ -43,7 +33,6 @@ def register(request):
     else:
         form = UserRegistForm()
     context = {"title":"Registration", 'form':form}
-<<<<<<< HEAD
 
     return render(request, 'user/register.html', context)
 
@@ -72,7 +61,6 @@ def rev(request):
     context = {"title":"Reviews?", "reviews": review.objects.all().filter(target = request.user.webuser)}
     return render(request, 'user/reviews.html', context)
 
-=======
     return render(request, 'user/register.html', context)
 
 @login_required
@@ -89,4 +77,4 @@ def search(request):
 class SearchDetailView(DetailView):
     model = webUser
     template_name = 'user/search.html'
->>>>>>> 880a134c15f924bdacf361592a1bd31ea7aaa66d
+
