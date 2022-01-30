@@ -11,5 +11,6 @@ urlpatterns = [
    path('resetPW/', views.resetPW, name="user-resetPW"),
    path('emailsent/', views.emailsent, name="user-emailsent"),
    path('completePW/', views.completePW, name = "user-completePW"),
-   path('security/', views.security, name = "user-security")
+   path('security/', views.security, name = "user-security"),
+   path('reviews/', views.rev, name = "user-reviews"),
 ]

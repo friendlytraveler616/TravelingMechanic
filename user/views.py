@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import UserRegistForm, userUpdateForm, webUserUpdateForm
+from travelingMechanic.models import review
 # Create your views here.
 def profile(request):
     #Updating requires instance
@@ -47,3 +48,8 @@ def completePW(request):
 def security(request):
     context = {"title":"Security?"}
     return render(request, 'user/security.html', context)
+
+def rev(request):
+
+    context = {"title":"Reviews?", "reviews": review.objects.all().filter(target = request.user.webuser)}
+    return render(request, 'user/reviews.html', context)
