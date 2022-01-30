@@ -20,10 +20,10 @@
 {% endblock%}
 {% block leftPanel %}
 
-<a href="{% url 'user-profile' %}">
-  <div class="publicProfileLink">
+<a href="{% url 'user-profile' %}" style = "text-decoration: none">
+  <div class="publicProfileLink" id = "on">
     <img src={{user.webuser.profilePic.url}} class = "publicProfilePic">
-    <h2 style = "margin: 3.5rem 0 0 13rem">Public Profile</h2>
+    <h2 style = "padding: 3.5rem 0 2rem 13rem">Public Profile</h2>
   </div>
 </a>
 
