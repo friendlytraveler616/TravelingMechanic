@@ -4,13 +4,14 @@ div.publicProfile1
 
   float: left;
   grid-template-columns: 1fr 6fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
   height: 100vh;
   width: 100%;
   min-width: 40rem;
   min-height: 100%;
   grid-auto-rows: minmax(auto, 20rem);
-
+  overflow:scroll;
+  overflow-x: hidden;
   /* background-color: #6abadeba; */
 }
 
@@ -26,6 +27,8 @@ img.profilePic
   min-width: 15rem;
   height: auto;
   float: left;
+
+  border-radius: 50%;
 }
 
 img.star
@@ -46,8 +49,9 @@ h1.profileName
   grid-row: 1;
   font-size: 4rem;
   margin: 3rem 0% 0% -13rem;
-  min-width: 60%;
+  min-width: 40rem;
   width: 60%;
+  overflow: hidden;
 
 }
 
@@ -130,6 +134,116 @@ div.email2
   font-size: 2rem;
   margin: 115.5% 0 0 55%;
 }
+
+div.editSubmit
+{
+  grid-column: 1;
+  grid-row: 1;
+  font-size: 2rem;
+  margin: 133.5% 0% 0% 10%;
+}
+
+div.publicProfileLink
+{
+  background-color: #D3F8F9;
+  width: 100%;
+  min-width: 100%;
+  float: left;
+  padding: 0 0 1rem 0;
+  focus: enabled;
+}
+div.publicProfileLink:hover
+{
+  background-color: #a5f0f3;
+  transition: all 1s ease 0s;
+}
+
+div.publicProfileLink:focus
+{
+    background-color: #D3F8F9;
+    transition: all 1s ease 0s;
+}
+
+div.securityLink
+{
+  width: 100%;
+  min-width: 100%;
+  float: left;
+}
+
+div.securityLink:hover
+{
+  background-color: #a5f0f3;
+  transition: all 1s ease 0s;
+}
+
+div.securityLink:focus
+{
+    background-color: #D3F8F9;
+    transition: all 1s ease 0s;
+}
+
+div.reviewsLink
+{
+  width: 100%;
+  min-width: 100%;
+  float: left;
+}
+
+div.reviewsLink:hover
+{
+  background-color: #a5f0f3;
+  transition: all 1s ease 0s;
+}
+
+div.reviewsLink:focus
+{
+    background-color: #D3F8F9;
+    transition: all 1s ease 0s;
+}
+
+img.publicProfilePic
+{
+  padding: 1rem 1rem 0rem 2rem;
+  margin: 0 0 0 0.5rem;
+
+  width: 28%;
+  max-width: 60rem;
+  min-width: 7rem;
+  height: auto;
+  float: left;
+
+  border-radius: 50%;
+}
+
+img.securityPic
+{
+  padding: 1rem 1rem 0rem 2rem;
+
+  width: 30%;
+  max-width: 60rem;
+  min-width: 7.8rem;
+  height: auto;
+  float: left;
+}
+
+img.reviewsPic
+{
+  padding: 1rem 1rem 0rem 2rem;
+
+  width: 30%;
+  max-width: 60rem;
+  min-width: 7.5rem;
+  height: auto;
+  float: left;
+}
+
+h2
+{
+  color: black;
+}
+
+
 
 input{
     outline: 0;

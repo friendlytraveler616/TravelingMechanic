@@ -1,6 +1,7 @@
-from django.shortcuts import render
-from django.views.generic import CreateView
-from .models import Commission, webUser
+from django.shortcuts import render, redirect
+from django.views.generic import CreateView, DetailView
+from .models import Commission, webUser, review
+from .forms import createReview
 from django import forms
 import json
 
@@ -8,6 +9,10 @@ import json
 def home(request):
     data = Commission.objects.filter(lat__isnull=False)
     return render(request, 'travelingMechanic/home.html', {'data': data,'title': 'Home'})
+
+class CommissionDetailView(DetailView):
+    model = Commission
+    template_name = 'travelingMechanic/detailed.html'
 
 class CommissionCreateView(CreateView):
     model = Commission
@@ -26,5 +31,16 @@ class CommissionCreateView(CreateView):
         form.fields['images'].required = False
         return form
 
-
+def review(request):
+    if request.method == 'POST':
+        c_form = createReview(request.POST, request.FILES, initial={'author':request.user.webuser})
+        if (c_form.is_valid()):
+            print(c_form.cleaned_data)
+            c_form.save()
+            messages.success(request, 'Your review is posted!')
+            return redirect('home')
+    else:
+        c_form = createReview(initial={'author':request.user.webuser})
+    context = {'title':'Submit review', 'c_form':c_form}
+    return render(request,'travelingMechanic/submitReview.html',context)
 

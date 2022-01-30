@@ -21,6 +21,7 @@ class Commission(models.Model):
     date_created = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(webUser, on_delete=models.CASCADE, related_name='author_requests_created')
     taker = models.ForeignKey(webUser, on_delete=models.CASCADE, blank=True, null=True, related_name='taker_requests_created')
+    done = models.BooleanField(default=False)
     def __str__(self):
         return ('\nTitle: ' + self.title + '\nDescription: ' + self.description
                 + '\nAsk price: ' + str(self.askPrice) + '\nUser: ' + self.author.user.username)
@@ -32,4 +33,5 @@ class review(models.Model):
     stars = models.IntegerField(validators=[validators.MinValueValidator(1), validators.MaxValueValidator(5)])
     description = models.TextField(max_length=1000, blank=True)
     image = models.ImageField(blank=True, upload_to='reviewspic/')
-    target = models.ForeignKey(webUser, on_delete=models.CASCADE)
+    author = models.ForeignKey(webUser, on_delete=models.CASCADE, related_name='review_author_requests_created')
+    target = models.ForeignKey(webUser, on_delete=models.CASCADE, related_name='target_requests_created')

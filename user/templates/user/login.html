@@ -1,3 +1,4 @@
+{%load crispy_forms_tags%}
 {%load static%}
 <!DOCTYPE html>
 <html lang="en">
@@ -8,10 +9,10 @@
   <body>
     <div class = "form">
     <p>Login</p>
-    <form>
-        <input type = "text" name= "username" placeholder= "username">
-        <input type = "password" name= "password" placeholder="password">
-        <button type = "submit"> Login </button>
+    <form method="POST" >
+        {%csrf_token%}
+        {{form|crispy}}
+        <button type="submit"> Login </button>
         <p class = "message"> Not registered? </p> <a href = "/user/register">Create an account</a></p>
     </form>
     </div>
