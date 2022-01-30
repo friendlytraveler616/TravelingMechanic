@@ -17,18 +17,21 @@ div.publicProfile1
 
 img.profilePic
 {
+  border-radius: 50%;
+
   grid-column: 1;
   grid-row: 1;
 
-  padding: 1rem 1rem 0rem 2rem;
+  margin: 1rem 1rem 0rem 2rem;
 
   width: 21%;
-  max-width: 60rem;
-  min-width: 15rem;
+  max-width: 16rem;
+  min-width: 16rem;
+  max-height: 16rem;
+  min-height: 16rem;
   height: auto;
   float: left;
 
-  border-radius: 50%;
 }
 
 img.star
@@ -204,16 +207,19 @@ div.reviewsLink:focus
 
 img.publicProfilePic
 {
-  padding: 1rem 1rem 0rem 2rem;
-  margin: 0 0 0 0.5rem;
+  border-radius: 50%;
+
+  /* padding: 1rem 1rem 0rem 2rem; */
+  margin: 0.7rem 0 0 2.6rem;
 
   width: 28%;
-  max-width: 60rem;
-  min-width: 7rem;
+  max-width: 8rem;
+  min-width: 8rem;
+  max-height: 8rem;
+  min-height: 8rem;
   height: auto;
   float: left;
 
-  border-radius: 50%;
 }
 
 img.securityPic
@@ -221,8 +227,8 @@ img.securityPic
   padding: 1rem 1rem 0rem 2rem;
 
   width: 30%;
-  max-width: 60rem;
-  min-width: 7.8rem;
+  max-width: 11.5rem;
+  min-width: 11.5rem;
   height: auto;
   float: left;
 }
@@ -232,8 +238,8 @@ img.reviewsPic
   padding: 1rem 1rem 0rem 2rem;
 
   width: 30%;
-  max-width: 60rem;
-  min-width: 7.5rem;
+  max-width: 11.5rem;
+  min-width: 11.5rem;
   height: auto;
   float: left;
 }

@@ -27,7 +27,7 @@ def register(request):
     else:
         form = UserRegistForm()
     context = {"title":"Registration", 'form':form}
-<<<<<<< HEAD
+
     return render(request, 'user/register.html', context)
 
 def forgetPW(request):
