@@ -16,10 +16,6 @@ def profile(request):
     return render(request, 'user/profile.html', context)
 
 
-def login(request):
-    context = {"title":"login"}
-    return render(request, 'user/login.html', context)
-
 def register(request):
     if request.method == 'POST':
         form = UserRegistForm(request.POST)

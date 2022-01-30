@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView
 from .models import Commission, webUser, review
 from .forms import createReview
 from django import forms
@@ -7,12 +7,15 @@ from django.contrib import messages
 
 # Create your views here.
 def home(request):
-
     context = {
         'commissions': Commission.objects.all(),
         'title': 'Home'
     }
     return render(request, 'travelingMechanic/home.html', context)
+
+class CommissionDetailView(DetailView):
+    model = Commission
+    template_name = 'travelingMechanic/detailed.html'
 
 class CommissionCreateView(CreateView):
     model = Commission

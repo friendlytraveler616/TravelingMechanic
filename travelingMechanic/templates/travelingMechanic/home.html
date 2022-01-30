@@ -27,4 +27,7 @@
 {% endblock %}
 {% block leftPanel %}
   <!-- iteractive commission panel goes here -->
+    {% for commission in commissions%}
+        <a href="{%url 'commission-detail' commission.id%}"><button>{{commission.title}}</button></a>
+    {% endfor %}
 {% endblock %}
