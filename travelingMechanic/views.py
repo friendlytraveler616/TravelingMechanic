@@ -8,12 +8,14 @@ from django import forms
 import json
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+import os
 
 # Create your views here.
 def home(request):
     context = {
         'commissions': Commission.objects.all(),
         'title': 'Home',
+        'API_URL': os.environ.get('API_KEY_URL')
     }
     if request.method == "POST":
         pknum = request.POST.get('pknum')
