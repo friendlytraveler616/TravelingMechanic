@@ -18,8 +18,6 @@ pip install -r requirements.txt
 
 To start the web server you need to run the following sequence of commands.
 
-First cd into DatabaseProject.
-
 Only run this when updating database
 ```bash
 python manage.py makemigrations
